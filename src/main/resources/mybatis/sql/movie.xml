@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xyz.ridsoft.mybatis.sql.movie">
+
+    <select id="selectMovieList" resultType="movieVO">
+        SELECT movie_name, director, type
+        FROM movie
+    </select>
+
+    <select id="selectMovieById" resultType="movieVO">
+        SELECT * FROM movie WHERE movie_id = #{movie_id}
+    </select>
+
+    <insert id="insertMovie" parameterType="movieVO">
+        INSERT INTO movie VALUES (#{movie_id}, #{movie_name}, #{director}, #{type}, #{moviecol})
+    </insert>
+
+    <update id="updateMovie" parameterType="movieVO">
+        UPDATE movie
+        SET movie_name = #{movie_name}, director = #{director}, type = #{type}, moviecol = #{moviecol}
+        WHERE movie_id = #{movie_id}
+    </update>
+
+    <delete id="deleteMovie" parameterType="string">
+        DELETE FROM movie WHERE movie_id = #{movie_id}
+    </delete>
+
+</mapper>

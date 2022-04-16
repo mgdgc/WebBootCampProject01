@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -25,7 +26,7 @@
         <tr>
             <td>${movie.movie_name}</td>
             <td>${movie.director}</td>
-            <td>${movie.types}</td>
+            <td>${movie.type}</td>
         </tr>
     </c:forEach>
     </tbody>
